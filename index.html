@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APEC — Asia-Pacific Economic Cooperation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <div class="nav-logo">APEC</div>
+    <ul class="nav-links">
+      <li><a href="#fanzine">Fanzine</a></li>
+      <li><a href="#map">Membros</a></li>
+      <li><a href="#stats">Números</a></li>
+      <li><a href="#timeline">Histórico</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <canvas id="particle-canvas"></canvas>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        21 ECONOMIAS &nbsp;·&nbsp; 2,9 BILHÕES DE PESSOAS
+      </div>
+      <h1 class="hero-title">APEC</h1>
+      <p class="hero-sub">Asia-Pacific Economic Cooperation</p>
+      <p class="hero-desc">O maior fórum econômico do Pacífico — desde 1989</p>
+      <button class="hero-btn" onclick="scrollTo('fanzine')">
+        <span>Explorar</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="hero-scroll-hint">SCROLL</div>
+  </section>
+
+  <!-- ── FANZINE CAROUSEL ── -->
+  <section id="fanzine">
+    <div class="section-header reveal">
+      <span class="section-tag">01 — FANZINE</span>
+      <h2>Conheça o Bloco</h2>
+      <p>Use as setas ou teclas ← → para navegar pelas 8 páginas</p>
+    </div>
+    <div class="carousel-wrapper">
+      <button class="carousel-btn" id="prevBtn" aria-label="Anterior">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M12 4l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="carousel-stage">
+        <div class="carousel-track" id="carouselTrack"></div>
+      </div>
+      <button class="carousel-btn" id="nextBtn" aria-label="Próximo">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M8 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+    <div class="carousel-label" id="carouselLabel"></div>
+  </section>
+
+  <!-- ── WORLD MAP ── -->
+  <section id="map">
+    <div class="section-header reveal">
+      <span class="section-tag">02 — MEMBROS</span>
+      <h2>Os 21 Membros</h2>
+      <p>Passe o mouse sobre os países em dourado para ver estatísticas</p>
+    </div>
+    <div class="map-outer reveal">
+      <div id="map-container">
+        <svg id="world-svg"></svg>
+        <div id="country-tooltip" class="tooltip hidden"></div>
+      </div>
+    </div>
+    <div id="members-list"></div>
+  </section>
+
+  <!-- ── STATS ── -->
+  <section id="stats">
+    <div class="section-header reveal">
+      <span class="section-tag">03 — NÚMEROS</span>
+      <h2>O Peso Econômico</h2>
+      <p>Números que definem o bloco mais relevante do mundo</p>
+    </div>
+    <div class="stats-grid" id="statsGrid"></div>
+  </section>
+
+  <!-- ── TIMELINE ── -->
+  <section id="timeline">
+    <div class="section-header reveal">
+      <span class="section-tag">04 — HISTÓRICO</span>
+      <h2>Linha do Tempo</h2>
+      <p>Arraste para o lado ou use o scroll horizontal</p>
+    </div>
+    <div class="timeline-outer">
+      <div class="timeline-scroll" id="timelineScroll"></div>
+    </div>
+    <p class="timeline-hint">← ARRASTE →</p>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-logo">APEC</div>
+    <p>Asia-Pacific Economic Cooperation</p>
+    <p class="footer-sub">Fanzine Escolar 2025 &nbsp;·&nbsp; 21 economias &nbsp;·&nbsp; Uma conversa que vale trilhões</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
